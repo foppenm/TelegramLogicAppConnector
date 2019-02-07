@@ -1,4 +1,4 @@
-# TelegramLogicAppConnector
+# Telegram LogicApp Connector
 A simple template for connecting Azure Logic Apps to Telegram
 
 ## Prerequisites
