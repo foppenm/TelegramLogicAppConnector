@@ -1,0 +1,67 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Default title",
+    "description": "Telegram",
+    "version": "1.0"
+  },
+  "host": "api.telegram.org",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/bot{botkey}/sendmesage": {},
+    "/bot{username}/sendmesage": {},
+    "/bot{botKey}/sendmesage": {},
+    "/bot{botKey}/sendmessage": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "botKey",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Access Token",
+            "x-ms-summary": "Access Token"
+          },
+          {
+            "name": "chat_id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "Chat Id",
+            "x-ms-summary": "Chat Id"
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "x-ms-summary": "Message",
+            "description": "Message"
+          }
+        ],
+        "summary": "Send Message",
+        "description": "Send message to bot",
+        "operationId": "SendMessage"
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {},
+  "security": [],
+  "tags": []
+}
