@@ -53,8 +53,43 @@
           }
         ],
         "summary": "Send Message",
-        "description": "Send message to bot",
+        "description": "Send message with a bot to a group or personal chat",
         "operationId": "SendMessage"
+      }
+    },
+    "/bot{botKey}/getUpdates": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "Get Updates",
+        "description": "Get the new messages",
+        "operationId": "GetUpdates",
+        "parameters": [
+          {
+            "name": "botKey",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer"
+          }
+        ]
       }
     }
   },
