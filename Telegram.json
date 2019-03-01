@@ -5,7 +5,7 @@
     "description": "Telegram",
     "version": "1.0"
   },
-  "host": "api.telegram.org",
+  "host": "<yourProxyHostHere>.azurewebsites.net",
   "basePath": "/",
   "schemes": [
     "https"
@@ -16,8 +16,10 @@
     "/bot{botkey}/sendmesage": {},
     "/bot{username}/sendmesage": {},
     "/bot{botKey}/sendmesage": {},
-    "/bot{botKey}/sendmessage": {
-      "post": {
+    "/bot{botKey}/sendmessage": {},
+    "/bot{botKey}/getUpdates": {},
+    "/sendMessage": {
+      "get": {
         "responses": {
           "default": {
             "description": "default",
@@ -28,28 +30,22 @@
         },
         "parameters": [
           {
-            "name": "botKey",
-            "in": "path",
+            "name": "text",
+            "in": "query",
             "required": true,
             "type": "string",
-            "description": "Access Token",
-            "x-ms-summary": "Access Token"
+            "x-ms-summary": "Text",
+            "description": "Text to send to Telegram",
+            "x-ms-visibility": "important"
           },
           {
             "name": "chat_id",
             "in": "query",
-            "required": false,
+            "required": true,
             "type": "string",
-            "description": "Chat Id",
-            "x-ms-summary": "Chat Id"
-          },
-          {
-            "name": "text",
-            "in": "query",
-            "required": false,
-            "type": "string",
-            "x-ms-summary": "Message",
-            "description": "Message"
+            "x-ms-summary": "Chat Id",
+            "description": "The chat id where this message is supposed to go",
+            "x-ms-visibility": "important"
           }
         ],
         "summary": "Send Message",
@@ -57,7 +53,7 @@
         "operationId": "SendMessage"
       }
     },
-    "/bot{botKey}/getUpdates": {
+    "/getUpdates": {
       "get": {
         "responses": {
           "default": {
@@ -72,22 +68,21 @@
         "operationId": "GetUpdates",
         "parameters": [
           {
-            "name": "botKey",
-            "in": "path",
-            "required": true,
-            "type": "string"
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "Limits the number of updates to return",
+            "x-ms-summary": "Limit"
           },
           {
             "name": "offset",
             "in": "query",
             "required": false,
-            "type": "integer"
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "required": false,
-            "type": "integer"
+            "type": "string",
+            "x-ms-summary": "Offset",
+            "description": "How many messages are retrieved from the past since last message, defaults to -1.",
+            "default": "-1"
           }
         ]
       }
@@ -96,7 +91,13 @@
   "definitions": {},
   "parameters": {},
   "responses": {},
-  "securityDefinitions": {},
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "in": "query",
+      "name": "apikey"
+    }
+  },
   "security": [],
   "tags": []
 }
