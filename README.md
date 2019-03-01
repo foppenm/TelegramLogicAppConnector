@@ -1,5 +1,5 @@
 # Telegram LogicApp Connector
-A simple template for connecting Azure Logic Apps to Telegram
+A simple template for connecting Azure Logic Apps to Telegram. See the blogpost @ https://www.re-mark-able.net
 
 ## Prerequisites
 Creating a telegram bot by following this tutorial: https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-telegram?view=azure-bot-service-4.0
