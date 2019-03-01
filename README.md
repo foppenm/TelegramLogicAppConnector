@@ -4,6 +4,10 @@ A simple template for connecting Azure Logic Apps to Telegram
 ## Prerequisites
 Creating a telegram bot by following this tutorial: https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-telegram?view=azure-bot-service-4.0
 
+## Supported Telegram API calls
+* SendMessage -> Sends a plain text message to a group or chat.
+* GetUpdates -> Gets the last 100 updates send to your bot. This can be controlled by setting the offset or limit.
+
 ## Getting it to work
 For this to work you need to create a Azure Logic App Custom Connector. This can be done by going to the Azure portal https://portal.azure.com where you can search for it.
 
